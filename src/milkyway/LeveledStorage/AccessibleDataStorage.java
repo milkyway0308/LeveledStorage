@@ -36,11 +36,12 @@ public class AccessibleDataStorage<K, V> {
     private final Object saveLock = new Object();
 
 
-    public AccessibleDataStorage(String folderLocation, String fileNameFormat, int maxDeepLevel, boolean asyncMove, boolean asyncSave) throws LeveledStorageException {
+    public AccessibleDataStorage(String folderLocation, String fileNameFormat, int maxDeepLevel,int saveCycle, boolean asyncMove, boolean asyncSave) throws LeveledStorageException {
         if (!fileNameFormat.contains("<Number>"))
             throw new FileNameFormatIncorrectException();
         isSaveAsync = asyncSave;
         isDataMoveAsync = asyncMove;
+        maxLeftTime = saveCycle;
         FileFormat = Pattern.compile(PatternCrashReplacer.replacePatternCrashItems(fileNameFormat).replace("\\<Number\\>", "(\\d+)"));
         File folder = new File(folderLocation);
         if (folder.exists()) {
