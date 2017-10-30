@@ -68,7 +68,6 @@ public class StoredData<Key, Data> implements Comparable<StoredData<Key, Data>> 
                 TypeResolver keyResolver = ResolverStorage.getResolver(stream.readInt());
                 TypeResolver valueResolver = ResolverStorage.getResolver(stream.readInt());
                 if (keyResolver == null || valueResolver == null) {
-                    // System.out.println("Resolver null");
                     return this;
                 }
                 while (stream.available() > 0) {
@@ -81,7 +80,6 @@ public class StoredData<Key, Data> implements Comparable<StoredData<Key, Data>> 
                 ex.printStackTrace();
             }
         }
-        //System.out.println(map);
         return this;
     }
 

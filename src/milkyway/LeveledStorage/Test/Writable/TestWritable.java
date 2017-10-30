@@ -27,7 +27,6 @@ public class TestWritable extends WritableData {
     @Override
     public void readData(ObjectInputStream stream) throws IOException {
         dat = stream.readInt();
-        //  System.out.println(dat);
     }
 
     @Override

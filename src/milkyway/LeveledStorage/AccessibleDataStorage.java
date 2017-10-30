@@ -51,7 +51,6 @@ public class AccessibleDataStorage<K, V> {
                     Matcher matcher = FileFormat.matcher(file.getName());
                     if (matcher.find()) {
                         storageLevels.add(new StoredData<K, V>(folderLocation, fileNameFormat).loadData(file).setStoragePriority(StringUtil.extractIntegers(matcher.group(1))));
-                        System.out.println(matcher.group(1));
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -250,7 +249,6 @@ public class AccessibleDataStorage<K, V> {
         synchronized (lock) {
             for (StoredData<K, V> kv : storageLevels) {
                 System.out.println(kv);
-                kv.printMap();
             }
         }
     }

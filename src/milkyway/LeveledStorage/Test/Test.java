@@ -27,7 +27,6 @@ public class Test {
              */
             storage.printTest();
             storage.stopTask();
-            System.out.println(storage.getValue(1));
         } catch (LeveledStorageException e) {
             e.printStackTrace();
         }
