@@ -13,6 +13,8 @@ public class StringUtil {
                 super("Number format string " + conversion + " is overflowed");
             }
         }
+        if(text.length() <= 0)
+            return 0;
         int stack = 0;
         boolean minus = false;
         char c = text.charAt(0);
@@ -50,6 +52,8 @@ public class StringUtil {
                 super("Number format string " + conversion + " is overflowed");
             }
         }
+        if(text.length() <= 0)
+            return 0;
         long stack = 0;
         boolean minus = false;
         char c = text.charAt(0);

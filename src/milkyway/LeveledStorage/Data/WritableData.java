@@ -4,14 +4,14 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public abstract class WritableData {
+public interface WritableData {
 
 
-    public abstract int getDataID();
+    int getDataID();
 
-    public abstract void writeData(ObjectOutputStream stream) throws IOException;
+    void writeData(ObjectOutputStream stream) throws IOException;
 
-    public abstract void readData(ObjectInputStream stream) throws IOException;
+    void readData(ObjectInputStream stream) throws IOException;
 
-    public abstract WritableData getNewInstance();
+    WritableData getNewInstance();
 }

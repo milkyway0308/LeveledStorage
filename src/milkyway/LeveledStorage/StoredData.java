@@ -12,9 +12,9 @@ import java.util.Map;
 
 public class StoredData<Key, Data> implements Comparable<StoredData<Key, Data>> {
 
-    private static int IntegerSeparator = 282167487;
+    private final static int IntegerSeparator = 282167487;
 
-    private static double DoubleSeparator = -249181242276632189412d;
+    private final static double DoubleSeparator = -249181242276632189412d;
 
     private HashMap<Key, Data> map = new HashMap<>();
 
