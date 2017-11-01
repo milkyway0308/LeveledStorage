@@ -215,7 +215,7 @@ public class AccessibleDataStorage<K, V> {
                 }
             }.start();
         } else {
-            while (config.isDataMoveAsync())
+            while (isSaving)
                 try {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
