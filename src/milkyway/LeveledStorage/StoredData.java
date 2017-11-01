@@ -123,14 +123,14 @@ public class StoredData<Key, Data> implements Comparable<StoredData<Key, Data>> 
     }
 
     boolean doSave() {
-        boolean ret = saveTime >= priority;
+        boolean ret = saveTime > priority;
         saveTime = 0;
         return ret;
     }
 
     boolean addTime() {
         saveTime++;
-        return saveTime >= priority;
+        return saveTime > priority;
     }
 
     StoredData<Key, Data> setStoragePriority(int pr) {

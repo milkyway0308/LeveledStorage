@@ -1,5 +1,6 @@
 package milkyway.LeveledStorage;
 
+import milkyway.LeveledStorage.Configuration.StorageConfiguration;
 import milkyway.LeveledStorage.Exception.FileAlreadyExistException;
 import milkyway.LeveledStorage.Exception.FileNameFormatIncorrectException;
 import milkyway.LeveledStorage.Exception.LeveledStorageException;
@@ -16,16 +17,12 @@ public class AccessibleDataStorage<K, V> {
 
     private Queue<Map.Entry<K, V>> temporyQueue = new ArrayDeque<>();
 
-    private boolean isDataMoveAsync = false;
 
-    private boolean isSaveAsync = false;
+    private StorageConfiguration config = new StorageConfiguration();
 
     private boolean isSaving = false;
 
     private boolean isMoving = false;
-
-    private int maxLeftTime = 4;
-
 
     private Pattern FileFormat;
 
@@ -39,9 +36,9 @@ public class AccessibleDataStorage<K, V> {
     public AccessibleDataStorage(String folderLocation, String fileNameFormat, int maxDeepLevel,int saveCycle, boolean asyncMove, boolean asyncSave) throws LeveledStorageException {
         if (!fileNameFormat.contains("<Number>"))
             throw new FileNameFormatIncorrectException();
-        isSaveAsync = asyncSave;
-        isDataMoveAsync = asyncMove;
-        maxLeftTime = saveCycle;
+        config.setSaveAsync(asyncSave);
+        config.setDataMoveAsync(asyncMove);
+        config.setSaveCycle(saveCycle);
         FileFormat = Pattern.compile(PatternCrashReplacer.replacePatternCrashItems(fileNameFormat).replace("\\<Number\\>", "(\\d+)"));
         File folder = new File(folderLocation);
         if (folder.exists()) {
@@ -67,6 +64,10 @@ public class AccessibleDataStorage<K, V> {
                 kv.setStoragePriority(i);
                 storageLevels.add(kv);
             }
+    }
+
+    public StorageConfiguration getConfig() {
+        return config;
     }
 
     public V getValue(K key) {
@@ -96,21 +97,6 @@ public class AccessibleDataStorage<K, V> {
         return isSaving;
     }
 
-    public boolean isSaveAsync() {
-        return isSaveAsync;
-    }
-
-    public void setSaveAsync(boolean async) {
-        isSaveAsync = async;
-    }
-
-    public boolean isMoveAsync() {
-        return isDataMoveAsync;
-    }
-
-    public void setMoveAsync(boolean async) {
-        isDataMoveAsync = async;
-    }
 
 
     public void startSchedule() {
@@ -121,7 +107,7 @@ public class AccessibleDataStorage<K, V> {
             @Override
             public void run() {
                 while (!stopTask) {
-                    if (currentTime > maxLeftTime) {
+                    if (currentTime > getConfig().getSaveCycle()) {
                         currentTime = 0;
                         saveStorage(currentThread, false);
                         moveStorage(currentThread);
@@ -150,7 +136,7 @@ public class AccessibleDataStorage<K, V> {
     private void saveStorage(Thread threadCurrent, boolean force) {
         isSaving = true;
         if (!force) {
-            if (isSaveAsync) {
+            if (config.isSaveAsync()) {
                 new Thread() {
                     @Override
                     public void run() {
@@ -178,7 +164,7 @@ public class AccessibleDataStorage<K, V> {
                 }.start();
             }
         } else {
-            if (isSaveAsync) {
+            if (config.isSaveAsync()) {
                 new Thread() {
                     @Override
                     public void run() {
@@ -207,7 +193,7 @@ public class AccessibleDataStorage<K, V> {
     }
 
     private void moveStorage(Thread threadCurrent) {
-        if (isDataMoveAsync) {
+        if (config.isDataMoveAsync()) {
             new Thread() {
                 @Override
                 public void run() {
@@ -229,7 +215,7 @@ public class AccessibleDataStorage<K, V> {
                 }
             }.start();
         } else {
-            while (isSaveAsync)
+            while (config.isDataMoveAsync())
                 try {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
