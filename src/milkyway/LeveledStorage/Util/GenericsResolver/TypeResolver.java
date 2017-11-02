@@ -12,6 +12,9 @@ import java.io.ObjectOutputStream;
  * Created by Developer_Unlocated on 2017-05-11.
  */
 public interface TypeResolver {
+
+    GenericsResolver.ItemType getResolver();
+
     boolean canResolve(Object obj);
 
     Object resolve(Object obj);
@@ -21,6 +24,10 @@ public interface TypeResolver {
     void writeObject(ObjectOutputStream stream, Object obj) throws IOException;
 
     class StringResolver implements TypeResolver {
+        @Override
+        public GenericsResolver.ItemType getResolver() {
+            return GenericsResolver.ItemType.String;
+        }
 
         @Override
         public boolean canResolve(Object obj) {
@@ -48,6 +55,10 @@ public interface TypeResolver {
     }
 
     class WritableResolver implements TypeResolver {
+        @Override
+        public GenericsResolver.ItemType getResolver() {
+            return GenericsResolver.ItemType.Writable;
+        }
 
         @Override
         public boolean canResolve(Object obj) {
@@ -75,6 +86,10 @@ public interface TypeResolver {
     }
 
     class NullResolver implements TypeResolver {
+        @Override
+        public GenericsResolver.ItemType getResolver() {
+            return GenericsResolver.ItemType.Writable;
+        }
 
         @Override
         public boolean canResolve(Object obj) {
@@ -104,6 +119,11 @@ public interface TypeResolver {
     class LongResolver implements TypeResolver {
 
         @Override
+        public GenericsResolver.ItemType getResolver() {
+            return GenericsResolver.ItemType.Long;
+        }
+
+        @Override
         public boolean canResolve(Object obj) {
             return obj == null || obj instanceof Long;
         }
@@ -127,6 +147,12 @@ public interface TypeResolver {
     }
 
     class IntegerResolver implements TypeResolver {
+
+        @Override
+        public GenericsResolver.ItemType getResolver() {
+            return GenericsResolver.ItemType.Integer;
+        }
+
 
         @Override
         public boolean canResolve(Object obj) {
@@ -156,6 +182,11 @@ public interface TypeResolver {
     class ByteResolver implements TypeResolver {
 
         @Override
+        public GenericsResolver.ItemType getResolver() {
+            return GenericsResolver.ItemType.Byte;
+        }
+
+        @Override
         public boolean canResolve(Object obj) {
             return obj == null || obj instanceof Byte;
         }
@@ -181,6 +212,12 @@ public interface TypeResolver {
     }
 
     class DoubleResolver implements TypeResolver {
+
+        @Override
+        public GenericsResolver.ItemType getResolver() {
+            return GenericsResolver.ItemType.Double;
+        }
+
 
         @Override
         public boolean canResolve(Object obj) {
@@ -211,6 +248,12 @@ public interface TypeResolver {
     class FloatResolver implements TypeResolver {
 
         @Override
+        public GenericsResolver.ItemType getResolver() {
+            return GenericsResolver.ItemType.Float;
+        }
+
+
+        @Override
         public boolean canResolve(Object obj) {
             return obj == null || obj instanceof Float;
         }
@@ -236,6 +279,12 @@ public interface TypeResolver {
     }
 
     class EmprtyResolver implements TypeResolver {
+
+        @Override
+        public GenericsResolver.ItemType getResolver() {
+            return GenericsResolver.ItemType.Empty;
+        }
+
 
         @Override
         public boolean canResolve(Object obj) {

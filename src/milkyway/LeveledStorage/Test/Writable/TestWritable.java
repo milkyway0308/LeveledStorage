@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class TestWritable extends WritableData {
+public class TestWritable implements WritableData {
     private int dat;
 
     public TestWritable(int dat) {

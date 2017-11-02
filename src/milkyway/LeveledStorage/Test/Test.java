@@ -10,7 +10,7 @@ public class Test {
 
         DataWritableRegistry.registerWritable(new TestWritable(499));
         try {
-            AccessibleDataStorage<Integer, TestWritable> storage = new AccessibleDataStorage<>("C:/PluginTest/TestLoc", "Test<Number>", 4, true, true);
+            AccessibleDataStorage<Integer, TestWritable> storage = new AccessibleDataStorage<>("C:/PluginTest/TestLoc", "Test<Number>", 4, 20,true, true);
             storage.startSchedule();
 
             /*
