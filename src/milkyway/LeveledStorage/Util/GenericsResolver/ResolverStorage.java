@@ -15,10 +15,7 @@ public class ResolverStorage {
 
     public static TypeResolver getResolver(int resolved) {
         if (resolvers.size() == 0)
-            for (GenericsResolver.ItemType ignored : GenericsResolver.ItemType.values())
-            {
-                ignored.getResolver().resolve(new Object());
-            }
+            for (GenericsResolver.ItemType ignored : GenericsResolver.ItemType.values());
         return resolvers.get(resolved);
     }
 }
