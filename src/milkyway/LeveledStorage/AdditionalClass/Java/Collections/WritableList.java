@@ -14,10 +14,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
-public abstract class WritableList<T> implements WritableData{
+public abstract class WritableList<T> implements WritableData {
     private List<T> inList;
     private TypeResolver type;
-    public WritableList(List<T> list) throws TypeNotSupportedException{
+    public WritableList(List<T> list) throws TypeNotSupportedException {
         inList = list;
         if(list.size() <= 0)
             return;
@@ -48,8 +48,12 @@ public abstract class WritableList<T> implements WritableData{
         int type = stream.readInt();
         if(type != -1){
             this.type = ResolverStorage.getResolver(type);
-            for(int i = 0;i <  stream.readInt();i++){
-                inList.add((T) this.type.readObject(stream));
+            int size = stream.readInt();
+          //  System.out.println(size);
+            for(int i = 0;i < size;i++){
+                T t = (T) this.type.readObject(stream);
+               // System.out.println(t);
+                inList.add(t);
             }
         }
     }
