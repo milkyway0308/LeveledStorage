@@ -55,7 +55,8 @@ public abstract class WritableList<T> implements WritableData {
                // System.out.println(t);
                 inList.add(t);
             }
-        }
+        }else
+            stream.readInt();
     }
 
     @Override
