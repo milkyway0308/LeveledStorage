@@ -171,7 +171,6 @@ public class DefaultMeta implements WritableData {
         initializeTest();
         additionalMeta = adData.getOrDefault(stream.readInt(),new EmptyMeta());
         additionalMeta.readData(stream);
-        System.out.println(additionalMeta.getClass().getName());
         boolean b = stream.readBoolean();
         if(b)
             (rep = new WritableRepairs()).readData(stream);
