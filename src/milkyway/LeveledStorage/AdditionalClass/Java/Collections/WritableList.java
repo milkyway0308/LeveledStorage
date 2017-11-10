@@ -34,10 +34,21 @@ public abstract class WritableList<T> implements WritableData {
 
     @Override
     public void writeData(ObjectOutputStream stream) throws IOException {
+        if(type == null && inList.size() >= 1){
+            try {
+                type = GenericsResolver.resolveGenerics(inList).getResolver();
+            } catch (TypeNotSupportedException | CollectionsNullException e) {
+
+            }
+        }
         if(type != null)
             stream.writeInt(type.getResolver().name().hashCode());
         else
+        {
             stream.writeInt(-1);
+            stream.writeInt(0);
+            return;
+        }
         stream.writeInt(inList.size());
         for(T t : inList)
             type.writeObject(stream,t);
