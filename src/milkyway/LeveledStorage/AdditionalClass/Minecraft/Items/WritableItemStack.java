@@ -6,14 +6,13 @@ import milkyway.LeveledStorage.Enums.ObjectType;
 import milkyway.LeveledStorage.Exception.ObjectNotSupportedException;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class WritableItemstack implements WritableData{
-    private static int hash = "Minecraft - WritableItemstack".hashCode();
+public class WritableItemStack implements WritableData{
+    private static int hash = "Minecraft - WritableItemStack".hashCode();
 
     private int itemID;
 
@@ -23,11 +22,11 @@ public class WritableItemstack implements WritableData{
 
     private DefaultMeta meta;
 
-    public WritableItemstack(){
+    public WritableItemStack(){
 
     }
 
-    public WritableItemstack(ItemStack n){
+    public WritableItemStack(ItemStack n){
         itemID = n.getTypeId();
         durability = n.getDurability();
         if(n.hasItemMeta())
@@ -61,7 +60,7 @@ public class WritableItemstack implements WritableData{
 
     @Override
     public WritableData getNewInstance() {
-        return new WritableItemstack();
+        return new WritableItemStack();
     }
 
     @Override
@@ -70,10 +69,9 @@ public class WritableItemstack implements WritableData{
             ItemStack item = new ItemStack(Material.getMaterial(itemID));
             item.setDurability(durability);
             if(this.meta != null)
-            {
                 this.meta.setItemMeta(item);
-                return item;
-            }
+
+            return item;
         }
         throw new ObjectNotSupportedException(flavor,this.getClass());
     }

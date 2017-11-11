@@ -8,11 +8,10 @@ import milkyway.LeveledStorage.AdditionalClass.Minecraft.Data.Etc.WritableBukkit
 import milkyway.LeveledStorage.AdditionalClass.Minecraft.Data.Fireworks.WritableFireworkEffect;
 import milkyway.LeveledStorage.AdditionalClass.Minecraft.Data.Potion.WritablePotionData;
 import milkyway.LeveledStorage.AdditionalClass.Minecraft.Data.Potion.WritablePotionEffect;
-import milkyway.LeveledStorage.AdditionalClass.Minecraft.Data.States.WritableBlockState;
 import milkyway.LeveledStorage.AdditionalClass.Minecraft.Items.ItemMeta.DefaultMeta;
 import milkyway.LeveledStorage.AdditionalClass.Minecraft.Items.ItemMeta.Impl.*;
 import milkyway.LeveledStorage.AdditionalClass.Minecraft.Items.ItemMeta.WritableRepairs;
-import milkyway.LeveledStorage.AdditionalClass.Minecraft.Items.WritableItemstack;
+import milkyway.LeveledStorage.AdditionalClass.Minecraft.Items.WritableItemStack;
 import milkyway.LeveledStorage.Data.DataWritableRegistry;
 import milkyway.LeveledStorage.Data.WritableData;
 import org.bukkit.Note;
@@ -43,7 +42,7 @@ public class MinecraftRegistry {
         register(new WritablePotionMeta());
         register(new WritableSpawnedEggMeta());
         register(new WritableRepairs());
-        register(new WritableItemstack());
+        register(new WritableItemStack());
     }
 
     private static void registerBukkitData() {
