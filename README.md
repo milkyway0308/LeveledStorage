@@ -23,22 +23,22 @@
 ## ∏Ò«•
 
 
-    - [ ] Add all Collection
-        - [ ] Add Lists (Java Branch)
-            - [x] ~~Add ArrayList~~
-            - [x] ~~Add LinkedList~~
-            - [ ] Add CopyOnWriteArrayList
-            - [ ] Add Stack
-            - [ ] Add Vector
-        - [ ] Add Maps (Java Branch)
-            - [x] ~~Add HashMap~~
-            - [ ] Add HashTable
-            - [ ] Add EnumMap
-            - [ ] Add ConcurrentHashMap
-            - [ ] Add ConcurrentSkipListMap
-            - [ ] Add TreeMap
-            - [ ] Add IdentityHashMap
-            - [ ] Add Properties
+- [ ] Add all Collection
+    - [ ] Add Lists (Java Branch)
+        - [x] ~~Add ArrayList~~
+        - [x] ~~Add LinkedList~~
+        - [ ] Add CopyOnWriteArrayList
+        - [ ] Add Stack
+        - [ ] Add Vector
+    - [ ] Add Maps (Java Branch)
+        - [x] ~~Add HashMap~~
+        - [ ] Add HashTable
+        - [ ] Add EnumMap
+        - [ ] Add ConcurrentHashMap
+        - [ ] Add ConcurrentSkipListMap
+        - [ ] Add TreeMap
+        - [ ] Add IdentityHashMap
+        - [ ] Add Properties
      - [ ] Add Auto-Identitier (Java Branch)
         - [x] ~~Add Calendar Identitier~~ (Completed,but have to check another calendars)
         - [ ] Add Map Identitier
