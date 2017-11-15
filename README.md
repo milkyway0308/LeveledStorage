@@ -23,27 +23,27 @@
 ## 목표
 
 
-    [ ] Add all Collection
-        [ ] Add Lists (Java Branch)
-            [x] ~~Add ArrayList~~
-            [x] ~~Add LinkedList~~
-            [ ] Add CopyOnWriteArrayList
-            [ ] Add Stack
-            [ ] Add Vector
-        [ ] Add Maps (Java Branch)
-            [x] ~~Add HashMap~~
-            [ ] Add HashTable
-            [ ] Add EnumMap
-            [ ] Add ConcurrentHashMap
-            [ ] Add ConcurrentSkipListMap
-            [ ] Add TreeMap
-            [ ] Add IdentityHashMap
-            [ ] Add Properties
-     [ ] Add Auto-Identitier (Java Branch)
-        [x] ~~Add Calendar Identitier~~ (Completed,but have to check another calendars)
-        [ ] Add Map Identitier
-        [ ] Add List Identitier
-        [ ] ~~Add Iterator Identitier~~ (Abandonded - Cannot find iterator classes)
+    - [ ] Add all Collection
+        - [ ] Add Lists (Java Branch)
+            - [x] ~~Add ArrayList~~
+            - [x] ~~Add LinkedList~~
+            - [ ] Add CopyOnWriteArrayList
+            - [ ] Add Stack
+            - [ ] Add Vector
+        - [ ] Add Maps (Java Branch)
+            - [x] ~~Add HashMap~~
+            - [ ] Add HashTable
+            - [ ] Add EnumMap
+            - [ ] Add ConcurrentHashMap
+            - [ ] Add ConcurrentSkipListMap
+            - [ ] Add TreeMap
+            - [ ] Add IdentityHashMap
+            - [ ] Add Properties
+     - [ ] Add Auto-Identitier (Java Branch)
+        - [x] ~~Add Calendar Identitier~~ (Completed,but have to check another calendars)
+        - [ ] Add Map Identitier
+        - [ ] Add List Identitier
+        - [ ] ~~Add Iterator Identitier~~ (Abandonded - Cannot find iterator classes)
 
 
 #### 작동 원리 - 데이터 이동
