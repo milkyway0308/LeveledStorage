@@ -18,7 +18,32 @@
 저장 시도 횟수가 스토리지 레벨 이상이 되면 자동으로 저장이 실행되고 다음 레벨의 스토리지로 데이터가 넘어갑니다.
 
 만약 최근에 접근된 데이터가 존재하면 해당 데이터는 0레벨 스토리지로 이동됩니다.
-#
+
+
+## 목표
+    [ ] Add all Collection
+        [ ] Add Lists (Java Branch)
+            [x] ~~Add ArrayList~~
+            [x] ~~Add LinkedList~~
+            [ ] Add CopyOnWriteArrayList
+            [ ] Add Stack
+            [ ] Add Vector
+        [ ] Add Maps (Java Branch)
+            [x] ~~Add HashMap~~
+            [ ] Add HashTable
+            [ ] Add EnumMap
+            [ ] Add ConcurrentHashMap
+            [ ] Add ConcurrentSkipListMap
+            [ ] Add TreeMap
+            [ ] Add IdentityHashMap
+            [ ] Add Properties
+     [ ] Add Auto-Identitier (Java Branch)
+        [x] ~~Add Calendar Identitier~~ (Completed,but have to check another calendars)
+        [ ] Add Map Identitier
+        [ ] Add List Identitier
+        [ ] ~~Add Iterator Identitier~~ (Abandonded - Cannot find iterator classes)
+
+
 #### 작동 원리 - 데이터 이동
 ```
 0레벨 스토리지
