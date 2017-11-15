@@ -5,7 +5,6 @@ import milkyway.LeveledStorage.Data.WritableData;
 import milkyway.LeveledStorage.Util.GenericsResolver.Exceptions.TypeNotSupportedException;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class WritableArrayList<T> extends WritableList<T>{
     private static int hash = "WritableArrayList".hashCode();
