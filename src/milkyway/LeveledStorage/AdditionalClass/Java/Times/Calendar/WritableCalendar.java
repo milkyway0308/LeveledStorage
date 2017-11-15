@@ -14,25 +14,10 @@ import java.util.GregorianCalendar;
 public abstract class WritableCalendar implements WritableData{
     private static int hash = "WritableCalendar".hashCode();
 
-    protected int year;
-
-    protected int month;
-
-    protected int date;
-
-    protected int hour;
-
-    protected int minute;
-
-    protected int second;
+    protected Calendar main;
 
     public WritableCalendar(Calendar calc){
-        year = calc.get(Calendar.YEAR);
-        month = calc.get(Calendar.MONTH);
-        date = calc.get(Calendar.DATE);
-        hour = calc.get(Calendar.HOUR_OF_DAY);
-        minute = calc.get(Calendar.MINUTE);
-        second = calc.get(Calendar.SECOND);
+       this.main = calc;
     }
 
     public WritableCalendar(){
@@ -46,27 +31,30 @@ public abstract class WritableCalendar implements WritableData{
 
     @Override
     public void writeData(ObjectOutputStream stream) throws IOException {
-        stream.writeInt(year);
-        stream.writeInt(month);
-        stream.writeInt(date);
-        stream.writeInt(hour);
-        stream.writeInt(minute);
-        stream.writeInt(second);
+        stream.writeInt(main.get(Calendar.YEAR));
+        stream.writeInt(main.get(Calendar.MONTH));
+        stream.writeInt(main.get(Calendar.DATE));
+        stream.writeInt(main.get(Calendar.HOUR_OF_DAY));
+        stream.writeInt(main.get(Calendar.MINUTE));
+        stream.writeInt(main.get(Calendar.SECOND));
+        stream.writeInt(main.get(Calendar.MILLISECOND));
+
+
     }
 
     @Override
     public void readData(ObjectInputStream stream) throws IOException {
-        year = stream.readInt();
-        month = stream.readInt();
-        date = stream.readInt();
-        hour = stream.readInt();
-        minute = stream.readInt();
-        second = stream.readInt();
+        main = getCalendar(stream.readInt()
+                ,stream.readInt(),stream.readInt(),stream.readInt(),stream.readInt(),stream.readInt(),stream.readInt()
+        );
     }
+
+    protected abstract Calendar getCalendar(int year,int month,int date,int hour,int minute,int second,int millisecond);
 
     public static WritableCalendar getCalendar(Calendar calc){
         if(calc instanceof GregorianCalendar)
             return new WritableGregorianCalendar(calc);
+
         return null;
     }
 

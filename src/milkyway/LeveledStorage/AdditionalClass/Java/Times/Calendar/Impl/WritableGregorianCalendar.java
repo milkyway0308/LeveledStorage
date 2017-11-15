@@ -17,6 +17,14 @@ public class WritableGregorianCalendar extends WritableCalendar{
     public WritableGregorianCalendar(){
         super();
     }
+
+    @Override
+    protected Calendar getCalendar(int year, int month, int date, int hour, int minute, int second, int millisecond) {
+        Calendar calc = new GregorianCalendar(year,month,date,hour,minute,second);
+        calc.set(Calendar.MILLISECOND,millisecond);
+        return calc;
+    }
+
     @Override
     public WritableData getNewInstance() {
         return new WritableGregorianCalendar();
@@ -25,13 +33,7 @@ public class WritableGregorianCalendar extends WritableCalendar{
     @Override
     public Object getData(ObjectType flavor) throws ObjectNotSupportedException {
         if(flavor == ObjectType.ORIGINAL){
-            Calendar gregorian = new GregorianCalendar();
-            gregorian.set(Calendar.YEAR,year);
-            gregorian.set(Calendar.MONTH,month);
-            gregorian.set(Calendar.DATE,date);
-            gregorian.set(Calendar.HOUR_OF_DAY,hour);
-            gregorian.set(Calendar.MINUTE,minute);
-            gregorian.set(Calendar.SECOND,second);
+            return super.main;
         }
         throw new ObjectNotSupportedException(flavor,this.getClass());
     }
