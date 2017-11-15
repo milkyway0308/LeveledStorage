@@ -5,10 +5,10 @@ import milkyway.LeveledStorage.Util.GenericsResolver.Exceptions.TypeNotSupported
 
 import java.util.HashMap;
 
-public class WriteableHashMap<K,V> extends WritableMap<K,V>{
+public class WritableHashMap<K,V> extends WritableMap<K,V>{
     private static int hash = "WritableHashMap".hashCode();
 
-    public WriteableHashMap(HashMap<K, V> mapToSave) throws TypeNotSupportedException {
+    public WritableHashMap(HashMap<K, V> mapToSave) throws TypeNotSupportedException {
         super(mapToSave);
     }
 
