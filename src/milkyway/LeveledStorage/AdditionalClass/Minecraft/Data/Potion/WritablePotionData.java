@@ -4,8 +4,6 @@ import milkyway.LeveledStorage.Data.WritableData;
 import milkyway.LeveledStorage.Enums.ObjectType;
 import milkyway.LeveledStorage.Exception.ObjectNotSupportedException;
 import org.bukkit.potion.PotionData;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 import org.bukkit.potion.PotionType;
 
 import java.io.IOException;
@@ -38,12 +36,18 @@ public class WritablePotionData implements WritableData{
 
     @Override
     public void writeData(ObjectOutputStream stream) throws IOException {
-
+        stream.writeUTF(potion);
+        stream.writeBoolean(extend);
+        stream.writeBoolean(upgrade);
+        System.out.println("Save: " + potion);
     }
 
     @Override
     public void readData(ObjectInputStream stream) throws IOException {
-
+        potion = stream.readUTF();
+        extend = stream.readBoolean();
+        upgrade = stream.readBoolean();
+        System.out.println("Load: "+  potion);
     }
 
     @Override

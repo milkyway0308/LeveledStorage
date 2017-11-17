@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class WritableMapMeta extends AdditionalData{
+public class WritableMapMeta extends AdditionalData {
     private static int hash = "Minecraft- WritableMapMeta".hashCode();
 
     private boolean isScaling = false;

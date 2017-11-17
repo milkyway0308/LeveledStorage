@@ -15,7 +15,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WritableFireworkEffect implements WritableData{
+public class WritableFireworkEffect implements WritableData {
     private static int hash = "Minecraft - WritableFireworkEffect".hashCode();
 
     private boolean hasFlicker = false;

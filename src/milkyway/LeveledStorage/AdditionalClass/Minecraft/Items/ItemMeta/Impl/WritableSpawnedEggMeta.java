@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class WritableSpawnedEggMeta extends AdditionalData{
+public class WritableSpawnedEggMeta extends AdditionalData {
     private static int hash = "Minecraft - WritableSpawnedEggMeta".hashCode();
 
     private String type;

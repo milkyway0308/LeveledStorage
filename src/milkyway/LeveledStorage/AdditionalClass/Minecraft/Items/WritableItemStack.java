@@ -18,7 +18,7 @@ public class WritableItemStack implements WritableData{
 
     private short durability;
 
-
+    private int amount;
 
     private DefaultMeta meta;
 
@@ -29,6 +29,7 @@ public class WritableItemStack implements WritableData{
     public WritableItemStack(ItemStack n){
         itemID = n.getTypeId();
         durability = n.getDurability();
+        amount = n.getAmount();
         if(n.hasItemMeta())
             meta = new DefaultMeta(n.getItemMeta());
     }
@@ -41,6 +42,7 @@ public class WritableItemStack implements WritableData{
     public void writeData(ObjectOutputStream stream) throws IOException {
         stream.writeInt(itemID);
         stream.writeShort(durability);
+        stream.writeInt(amount);
         if(meta != null)
         {
             stream.writeBoolean(true);
@@ -87,6 +89,8 @@ public class WritableItemStack implements WritableData{
                        return itemID;
                    case "durability":
                        return durability;
+                   case "amount":
+                       return amount;
                }
 
            case OBJECT:
@@ -95,4 +99,5 @@ public class WritableItemStack implements WritableData{
        }
         throw new ObjectNotSupportedException(flavor,this.getClass());
     }
+
 }

@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class WritableFireworkEffectMeta extends AdditionalData{
+public class WritableFireworkEffectMeta extends AdditionalData {
     private static int hash = "Minecraft - WritableFireworkEffectMeta".hashCode();
 
     private WritableFireworkEffect wf;

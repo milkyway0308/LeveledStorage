@@ -4,9 +4,8 @@ import milkyway.LeveledStorage.AdditionalClass.Minecraft.Data.Colors.WritableBuk
 import milkyway.LeveledStorage.Data.WritableData;
 import milkyway.LeveledStorage.Enums.ObjectType;
 import milkyway.LeveledStorage.Exception.ObjectNotSupportedException;
+import org.bukkit.Bukkit;
 import org.bukkit.Color;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -46,6 +45,8 @@ public class WritablePotionEffect implements WritableData{
         isAmbient  = effect.isAmbient();
 
         hasParticle = effect.hasParticles();
+
+        System.out.println("Potion ID: " + potionID);
     }
     @Override
     public int getDataID() {
@@ -75,6 +76,7 @@ public class WritablePotionEffect implements WritableData{
         hasParticle = stream.readBoolean();
         if(stream.readBoolean())
             (color = new WritableBukkitColor()).readData(stream);
+        Bukkit.getConsoleSender().sendMessage("Potion ID:" + potionID);
     }
 
     @Override

@@ -21,7 +21,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WritablePotionMeta extends AdditionalData{
+public class WritablePotionMeta extends AdditionalData {
     private static int hash = "Minecraft  - WritablePotionMeta".hashCode();
 
     private WritablePotionData base;
@@ -39,6 +39,7 @@ public class WritablePotionMeta extends AdditionalData{
     }
 
     public WritablePotionMeta(ItemMeta meta){
+        this();
         if(meta instanceof PotionMeta) {
             PotionMeta pm = (PotionMeta) meta;
             base =  new WritablePotionData(pm.getBasePotionData());
@@ -58,11 +59,13 @@ public class WritablePotionMeta extends AdditionalData{
         if(meta instanceof PotionMeta){
             PotionMeta pm = (PotionMeta) meta;
             try {
-                pm.setBasePotionData((PotionData) base.getData(ObjectType.ORIGINAL));
+                PotionData pd = (PotionData) base.getData(ObjectType.ORIGINAL);
+                pm.setBasePotionData(pd);
                 if(color != null)
                     pm.setColor((Color) color.getData(ObjectType.ORIGINAL));
                 for(WritablePotionEffect effect :  (List<WritablePotionEffect>)this.effect.getData(ObjectType.ORIGINAL))
-                    pm.addCustomEffect((PotionEffect) effect.getData(ObjectType.ORIGINAL),true);
+                    pm.addCustomEffect((PotionEffect) effect.getData(ObjectType.ORIGINAL),false);
+
             } catch (ObjectNotSupportedException e) {
                 e.printStackTrace();
             }
@@ -120,4 +123,5 @@ public class WritablePotionMeta extends AdditionalData{
         }
         throw new ObjectNotSupportedException(flavor,this.getClass());
     }
+
 }

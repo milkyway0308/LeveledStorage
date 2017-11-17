@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class WritableLeatherArmorMeta extends AdditionalData{
+public class WritableLeatherArmorMeta extends AdditionalData {
     private static int hash = "Minecraft - WritableLeatherArmorMeta".hashCode();
 
     private WritableBukkitColor color;

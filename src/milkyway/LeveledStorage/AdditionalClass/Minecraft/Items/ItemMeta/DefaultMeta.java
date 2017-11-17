@@ -133,6 +133,8 @@ public class DefaultMeta implements WritableData {
             List<WritableEnchant>  we = (List<WritableEnchant>) enchants.getData(ObjectType.ORIGINAL);
             for(WritableEnchant ec : we)
                 meta.addEnchant(ec.getEnchantment(),ec.getLevel(),true);
+            additionalMeta.setToMeta(meta);
+            item.setItemMeta(meta);
         } catch (ObjectNotSupportedException e) {
             e.printStackTrace();
         }
@@ -169,7 +171,7 @@ public class DefaultMeta implements WritableData {
     @Override
     public void readData(ObjectInputStream stream) throws IOException {
         initializeTest();
-        additionalMeta = adData.getOrDefault(stream.readInt(),new EmptyMeta());
+        additionalMeta = (AdditionalData) adData.getOrDefault(stream.readInt(),new EmptyMeta()).getNewInstance();
         additionalMeta.readData(stream);
         boolean b = stream.readBoolean();
         if(b)
@@ -221,4 +223,5 @@ public class DefaultMeta implements WritableData {
 
         throw new ObjectNotSupportedException(flavor, this.getClass());
     }
+
 }

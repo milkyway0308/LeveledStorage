@@ -1,6 +1,5 @@
 package milkyway.LeveledStorage.AdditionalClass.Minecraft.Items.ItemMeta.Impl;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
 import milkyway.LeveledStorage.AdditionalClass.Java.Collections.Lists.WritableArrayList;
 import milkyway.LeveledStorage.AdditionalClass.Minecraft.Data.Enchants.WritableEnchant;
 import milkyway.LeveledStorage.AdditionalClass.Minecraft.Items.ItemMeta.AdditionalData;
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class WritableEnchantBookMeta extends AdditionalData{
+public class WritableEnchantBookMeta extends AdditionalData {
     private static int hash = "Minecraft - WritableEnchantBookMeta".hashCode();
 
     private WritableArrayList<WritableEnchant> data;
