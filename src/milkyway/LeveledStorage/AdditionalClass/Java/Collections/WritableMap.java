@@ -79,11 +79,6 @@ public abstract class WritableMap<K,V> implements WritableData{
     }
 
     @Override
-    public WritableData getNewInstance() {
-        return null;
-    }
-
-    @Override
     public Object getData(ObjectType flavor) throws ObjectNotSupportedException {
         return null;
     }
