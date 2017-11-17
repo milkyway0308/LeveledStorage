@@ -12,7 +12,9 @@ import milkyway.LeveledStorage.Util.GenericsResolver.TypeResolver;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Collection;
 import java.util.Map;
+import java.util.Set;
 
 public abstract class WritableMap<K,V> implements WritableData{
     private Map<K,V> inClassMap;
@@ -89,5 +91,39 @@ public abstract class WritableMap<K,V> implements WritableData{
     @Override
     public Object getData(ObjectType flavor, String item) throws ObjectNotSupportedException {
         return null;
+    }
+
+    public V put(K key,V value){
+        return inClassMap.put(key, value);
+    }
+
+    public V remove(K Key){
+        return inClassMap.remove(key);
+    }
+
+    public Set<Map.Entry<K,V>> entrySet(){
+        return inClassMap.entrySet();
+    }
+
+    public V get(K key){
+        return inClassMap.get(key);
+    }
+
+    public boolean containsKey(K key){
+        return inClassMap.containsKey(key);
+    }
+
+    public Collection<V> values(){
+        return inClassMap.values();
+    }
+
+    public Set<K> keySet(){
+        return inClassMap.keySet();
+    }
+
+
+
+    public void clear(){
+        inClassMap.clear();
     }
 }
