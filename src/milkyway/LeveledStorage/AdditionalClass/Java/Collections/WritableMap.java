@@ -74,7 +74,7 @@ public abstract class WritableMap<K,V> implements WritableData{
         TypeResolver keyResolver = ResolverStorage.getResolver(key);
         TypeResolver valueResolver = ResolverStorage.getResolver(value);
         for(int i = 0;i < size;i++){
-            inClassMap.put((K)keyResolver.resolve(stream),(V)valueResolver.resolve(stream));
+            inClassMap.put((K)keyResolver.readObject(stream),(V)valueResolver.readObject(stream));
         }
     }
 
