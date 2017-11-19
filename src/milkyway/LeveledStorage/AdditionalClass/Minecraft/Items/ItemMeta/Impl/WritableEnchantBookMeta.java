@@ -32,6 +32,7 @@ public class WritableEnchantBookMeta extends AdditionalData {
     }
 
     public WritableEnchantBookMeta(ItemMeta meta){
+        this();
         if(meta instanceof EnchantmentStorageMeta){
             try {
                 List<WritableEnchant> list = (List<WritableEnchant>) data.getData(ObjectType.ORIGINAL);
